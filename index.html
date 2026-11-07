@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>弦卷心 · 图鉴</title>
+  <meta name="description" content="弦卷心游戏卡面、官图与周边的私人图鉴。">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brandmark" aria-hidden="true">☺</span><span>こころの図鑑</span></a>
+  <nav aria-label="主导航"><a href="#gallery">图鉴</a><a href="#sources">关于</a></nav>
+</header>
+<main>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow">HELLO, HAPPY WORLD!</p>
+      <h1 id="hero-title">心心的图鉴<span class="spark" aria-hidden="true">✳</span></h1>
+      <a class="primary" href="#gallery">翻开图鉴 <span aria-hidden="true">↓</span></a>
+    </div>
+    <div class="hero-art" aria-label="弦卷心卡面预览">
+      <div class="orbit-line" aria-hidden="true"></div>
+      <div class="photo photo-back"><img id="hero-back" alt="弦卷心卡面：特训前" decoding="async" fetchpriority="high"></div>
+      <div class="photo photo-front"><img id="hero-front" alt="弦卷心卡面：特训后" decoding="async" fetchpriority="high"></div>
+      <span class="sticker" aria-hidden="true">☺</span>
+    </div>
+  </section>
+  <section id="gallery" class="gallery-section" aria-labelledby="gallery-title">
+    <div class="section-head"><h2 id="gallery-title">图鉴</h2><button id="export" class="textbutton" title="导出当前筛选结果，不含图片">↓ 导出 CSV</button></div>
+    <div class="toolbar">
+      <div class="tabs" role="group" aria-label="图鉴分类">
+        <button data-category="all" class="active" aria-pressed="true">全部</button>
+        <button data-category="card" aria-pressed="false">卡面</button>
+        <button data-category="art" aria-pressed="false">官图</button>
+        <button data-category="merch" aria-pressed="false">周边</button>
+        <button data-category="favorite" aria-pressed="false">♡ 收藏</button>
+      </div>
+      <div class="filters">
+        <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="搜索名称、系列、卡片编号" aria-label="搜索图鉴"></label>
+        <select id="year" aria-label="按年份筛选"><option value="">全部年份</option><option value="unknown">年份未知</option></select>
+        <select id="scope" aria-label="按画面筛选"><option value="">所有画面</option><option value="solo">单人</option><option value="group">合绘</option></select>
+        <select id="sort" aria-label="排序"><option value="default">推荐排序</option><option value="new">最新在前</option><option value="old">最早在前</option><option value="title">名称 A–Z</option></select>
+      </div>
+    </div>
+    <div class="results-line"><span id="results" aria-live="polite">正在加载…</span></div>
+    <div id="grid" class="grid"></div>
+    <div id="empty" class="empty" hidden><span aria-hidden="true">☀</span><h3>没有找到相关条目</h3><button id="reset" class="secondary">清除筛选</button></div>
+    <div class="pagination"><button id="prev" aria-label="上一页">← 上一页</button><span id="page-info"></span><button id="next" aria-label="下一页">下一页 →</button></div>
+  </section>
+  <section id="sources" class="sources" aria-label="关于图鉴">
+    <details class="archive-note">
+      <summary>关于图鉴与来源<span>非官方 · 未全收录</span></summary>
+      <div class="source-details">
+        <div><h3>收录范围</h3><p id="coverage">正在读取…</p><p>条目数不等于独立插画数，跨来源同图尚未完全去重。未知日期不作推算。</p><p>收藏仅保存在当前浏览器；CSV 导出筛选结果，不含图片。</p></div>
+        <div><h3>来源</h3><ul>
+          <li><a href="https://bestdori.com/info/characters/11" target="_blank" rel="noopener noreferrer">Bestdori ↗</a><span>玩家维护的卡面资料</span></li>
+          <li><a href="https://bandori.party/assets/officialart-Kokoro-Tsurumaki/?page=1" target="_blank" rel="noopener noreferrer">Bandori Party ↗</a><span>社区官图归档，未逐张核验</span></li>
+          <li><a href="https://bushiroad-store.com/collections/kokoro" target="_blank" rel="noopener noreferrer">Bushiroad ↗</a> · <a href="https://amnibus.com/products/detail/98738" target="_blank" rel="noopener noreferrer">AMNIBUS ↗</a><span>官方 / 授权商品</span></li>
+        </ul><p>图片及角色版权归原权利人所有，仅供个人参考，不代表转载、商用或再分发许可。</p></div>
+      </div>
+    </details>
+  </section>
+</main>
+<footer><a class="brand-mini" href="#">☺ こころの図鑑</a><span>非官方个人图鉴 · 2026.11.06</span></footer>
+<dialog id="viewer" aria-labelledby="detail-title">
+  <button class="close" id="close" aria-label="关闭详情">×</button>
+  <div class="viewer-layout">
+    <div class="viewer-media"><img id="detail-image" alt=""><p id="image-caption"></p><div class="variant-row"><button id="image-prev" aria-label="上一张图片">←</button><span id="image-count" aria-live="polite"></span><button id="image-next" aria-label="下一张图片">→</button></div><p id="detail-error" hidden>预览不可用，请查看来源。</p></div>
+    <div class="viewer-copy"><span id="detail-category" class="label"></span><h2 id="detail-title"></h2><p id="detail-original"></p><div id="detail-meta"></div><details id="detail-extra"><summary>条目备注</summary><p id="detail-notes"></p></details><a id="source-link" class="primary" target="_blank" rel="noopener noreferrer">查看来源 ↗</a><button id="detail-favorite" class="secondary">♡ 收藏</button><div id="product-list"></div></div>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+<script src="app.js" defer></script>
+</body>
+</html>
